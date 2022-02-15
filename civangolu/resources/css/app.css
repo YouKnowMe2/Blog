@@ -38,3 +38,8 @@ h1,h2,h3,h4,h5,h6{
 .fullwidth-btn{
     @apply bg-gray-800 text-white px-4 py-4 rounded w-full inline-block
 }
+.sticky-header-active {
+    background-color: #fff;
+}
+
+.sticky-header-active a{color:#333}

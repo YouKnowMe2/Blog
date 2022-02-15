@@ -7,6 +7,17 @@
         </div>
     </div>
 
+
+    <div class="-mt-20 md:-mt-10">
+        <div class="container">
+            <div class="rounded-lg bg-white p-4 relative z-20 shadow-lg home-search">
+                @include('components.property-search-form')
+            </div>
+
+        </div>
+    </div>
+
+
     <div class="py-32 text-center">
         <div class="container">
             <h2 class="font-bold text-5xl mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consequuntur dolores<br/> eaque ipsam necessitatibus<span class="underline">unde!</span> </h2>
