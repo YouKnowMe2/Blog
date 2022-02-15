@@ -15,8 +15,8 @@
 
 
     <div class="min-w-max flex">
-        <a class="pr-4" href=""><img src="https://flagcdn.com/16x12/tr.png"></a>
-        <a href=""><img src="https://flagcdn.com/16x12/us.png"></a>
+        <a class="pr-4" href=""><img src="https://flagcdn.com/40x30/tr.png"></a>
+        <a href=""><img src="https://flagcdn.com/40x30/us.png"></a>
     </div>
 
 

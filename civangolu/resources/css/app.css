@@ -2,7 +2,39 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+
+@font-face {
+    font-family: 'Liberation Serif';
+    src: url('../fonts/LiberationSerif-Bold.woff2') format('woff2'),
+    url('../fonts/LiberationSerif-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Liberation Serif';
+    src: url('../fonts/LiberationSerif.woff2') format('woff2'),
+    url('../fonts/LiberationSerif.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .container{
     margin: 0 auto;
     max-width: 1200px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Liberation Serif',sans-serif;
+    font-weight: bold;
+}
+.section-heading{
+ @apply font-bold text-center text-4xl mb-10
+}
+.fullwidth-btn{
+    @apply bg-gray-800 text-white px-4 py-4 rounded w-full inline-block
 }
