@@ -12,9 +12,10 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function single($id)
     {
-        //
+        $property = Property::findOrFail($id);
+        return view('property.single',['property' => $property]);
     }
 
     /**
