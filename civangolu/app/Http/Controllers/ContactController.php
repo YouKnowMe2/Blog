@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -21,6 +23,7 @@ class ContactController extends Controller
         $contact->message = $request->message . '\n This message has been sent via ' . route('single-property', $property_id) . ' website.';
         $contact->save();
 
-        return redirect(route('single-property',$property_id));
+        Mail::send(new ContactMail($contact));
+        return redirect(route('single-property',$property_id))->with('message','Your Message has been sent');
     }
 }
