@@ -60,11 +60,13 @@ class PropertyController extends Controller
         if(!empty($request->location)) {
             $latest_properties = $latest_properties->where('location_id', $request->location);
         }
-
+        if(!empty($request->property_name)) {
+            $latest_properties = $latest_properties->where('name', 'LIKE', '%'. $request->property_name .'%');
+        }
 
 
         $latest_properties = $latest_properties->paginate(12);
-        $locations =Location::all();
+        $locations =Location::select('id','name')->get();
 
 
         return view('property.index', [
