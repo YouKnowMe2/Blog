@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/property/{id}', [PropertyController::class, 'single'])->name('single-property');
 Route::get('/properties', [PropertyController::class, 'index'])->name('properties');
+Route::get('/page/{slug}', [PageController::class, 'single'])->name('page');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

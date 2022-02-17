@@ -61,8 +61,6 @@ h1, h2, h3, h4, h5, h6 {
     @apply btn w-full
 }
 
-.slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir=rtl] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
-
 .sticky-header-active {
     background-color: #fff;
 }
@@ -92,31 +90,47 @@ h1, h2, h3, h4, h5, h6 {
     height: 80px;
 }
 
-.vertical-search-form > form > div{
+.vertical-search-form > form > div {
     display: block;
     min-width: 100%;
     margin-bottom: 15px;
 }
-.vertical-search-form > form{
+
+.vertical-search-form > form {
     display: block;
 }
-.vertical-search-form .border-gray-500{
+
+.vertical-search-form .border-gray-500 {
     display: none;
 }
-.vertical-search-form select{
+
+.home-search label {
+    display: none;
+}
+
+.vertical-search-form label {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    opacity: .5;
+}
+
+.vertical-search-form select {
     min-width: 100%;
 }
-.vertical-search-form>form>div>div{
+
+.vertical-search-form > form > div > div {
     display: block;
     min-width: 100%;
     margin-bottom: 15px;
-
 }
-.vertical-search-form> form > div.ml-5{
+
+.vertical-search-form > form > div.ml-5 {
     margin-left: 12px;
 }
-.vertical-search-form button{
+
+.vertical-search-form button {
     margin-top: 15px;
     min-width: 100%;
 }
-

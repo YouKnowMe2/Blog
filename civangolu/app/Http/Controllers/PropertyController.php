@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -56,13 +57,20 @@ class PropertyController extends Controller
         if(!empty($request->bedrooms)) {
             $latest_properties = $latest_properties->where('bedrooms', $request->bedrooms);
         }
+        if(!empty($request->location)) {
+            $latest_properties = $latest_properties->where('location_id', $request->location);
+        }
 
 
 
         $latest_properties = $latest_properties->paginate(12);
+        $locations =Location::all();
 
 
-        return view('property.index', ['latest_properties' => $latest_properties]);
+        return view('property.index', [
+            'latest_properties' => $latest_properties,
+            'locations' => $locations
+        ]);
     }
 
     /**

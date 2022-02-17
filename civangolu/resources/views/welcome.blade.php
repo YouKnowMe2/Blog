@@ -10,8 +10,8 @@
     <!-- Search From Area -->
     <div class="-mt-10">
         <div class="container">
-            <div class="rounded-lg bg-white p-4 relative z-20 shadow-lg">
-              @include('components.property-search-form');
+            <div class="rounded-lg bg-white p-4 relative z-20 shadow-lg home-search">
+                @include('components.property-search-form', ['locations' => $locations])
             </div>
 
         </div>
@@ -117,10 +117,10 @@
     <!-- Last Added Objects -->
     <div class="container py-14">
         <h2 class="section-heading">Last added objusts</h2>
-        <div class="flex -mx-2 justify-between mt-10">
+        <div class="flex flex-wrap -mx-2 mt-10">
 
             @foreach($latest_properties as $property)
-            @include('components.single-property-card',['$property'=>$property]);
+                @include('components.single-property-card', ['property' => $property, 'width' => 'w-1/4'])
             @endforeach
 
 
