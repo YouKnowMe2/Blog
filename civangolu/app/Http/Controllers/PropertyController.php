@@ -23,9 +23,18 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        if(!empty($request->type)){
+
+            $latest_properties = Property::latest()->where('type',$request->type)->paginate(12);
+        }else{
+            $latest_properties = Property::latest()->paginate(12);
+
+        }
+
+
+        return view('property.index',['latest_properties'=> $latest_properties]);
     }
 
     /**

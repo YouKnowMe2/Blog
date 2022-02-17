@@ -18,4 +18,5 @@ class Property extends Model
     public function gallery(){
         return $this->hasMany(Media::class,'property_id');
     }
+
 }
