@@ -32,8 +32,8 @@
                                 <td class="border px-4 py-2">{{$property->location->name}}</td>
                                 <td class="border px-4 py-2">{{$property->price}}</td>
                                 <td class="border px-4 py-2 text-center">
-                                    <a class="bg-blue-500 text-white px-4 py-2 text-xs rounded" href="">Edit</a>
-                                    <a class="bg-green-500 text-white px-4 py-2 text-xs rounded" href="" target="_blank">View</a>
+                                    <a class="bg-blue-500 text-white px-4 py-2 text-xs rounded" href="{{route('edit-property', $property->id)}}">Edit</a>
+                                    <a class="bg-green-500 text-white px-4 py-2 text-xs rounded" href="{{route('single-property',$property->id)}}" target="_blank">View</a>
                                     <a class="bg-red-500 text-white px-4 py-2 text-xs rounded" href="">Delete</a>
                                 </td>
                             </tr>

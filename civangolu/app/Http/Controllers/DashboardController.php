@@ -63,4 +63,13 @@ class DashboardController extends Controller
 
         return redirect(route('dashboard-properties'))->with(['message' => 'Property is added.']);
     }
+
+    public function editProperty($property_id) {
+        $property = Property::findOrFail($property_id);
+        $locations = Location::all();
+        return view('admin.property.edit', [
+            'property' => $property,
+            'locations' => $locations
+        ]);
+    }
 }
