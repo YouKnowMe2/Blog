@@ -18,7 +18,7 @@ class CreatePropertiesTable extends Migration
             $table->string('name');
             $table->string('name_tr');
 
-            $table->unsignedBigInteger('featured_image');
+            $table->string('featured_image');
             $table->unsignedBigInteger('location_id');
 
             $table->unsignedBigInteger('price');
@@ -27,6 +27,7 @@ class CreatePropertiesTable extends Migration
 
             $table->string('bedrooms')->nullable();
             $table->unsignedBigInteger('bathrooms')->nullable();
+            $table->unsignedBigInteger('drawing_rooms')->nullable();
             $table->unsignedBigInteger('net_sqm')->nullable();
             $table->unsignedBigInteger('gross_sqm')->nullable();
             $table->unsignedBigInteger('pool')->nullable()->comment('0=no,1=private,2=public,3=both');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Media;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class DashboardController extends Controller
         $request->validate([
             'name' => 'required',
             'name_tr' => 'required',
-            //'featured_image' => 'required|image',
+            'featured_image' => 'required|image',
+            'gallery_images' => 'required',
             'location_id' => 'required',
             'price' => 'required|integer',
             'sale' => 'integer',
@@ -42,12 +44,19 @@ class DashboardController extends Controller
         $property = new Property();
         $property->name = $request->name;
         $property->name_tr = $request->name_tr;
-        $property->featured_image = 'pending';
+
+        $featured_image_name = time().'-'.$request->featured_image->getClientOriginalName();
+        $request->featured_image->storeAs('public/uploads', $featured_image_name );
+        $property->featured_image = $featured_image_name;
+
+
+
         $property->location_id = $request->location_id;
         $property->price = $request->price;
         $property->sale = $request->sale;
         $property->type = $request->type;
         $property->bedrooms = $request->bedrooms;
+        $property->drawing_rooms = $request->drawing_rooms;
         $property->bathrooms = $request->bathrooms;
         $property->net_sqm = $request->net_sqm;
         $property->gross_sqm = $request->gross_sqm;
@@ -61,6 +70,14 @@ class DashboardController extends Controller
 
         $property->save();
 
+        foreach ($request->gallery_images as $image){
+        $gallery_image_name = time().'-'.$image->getClientOriginalName();
+            $image->storeAs('public/uploads', $gallery_image_name );
+            $media = new Media();
+            $media->name = $gallery_image_name;
+            $media->property_id= $property->id;
+            $media->save();
+        }
         return redirect(route('dashboard-properties'))->with(['message' => 'Property is added.']);
     }
 
@@ -72,4 +89,5 @@ class DashboardController extends Controller
             'locations' => $locations
         ]);
     }
+
 }
