@@ -120,6 +120,7 @@
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/mcamara/laravel-localization" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

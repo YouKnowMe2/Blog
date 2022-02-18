@@ -7,15 +7,24 @@
         <ul class="flex justify-center">
             <li><a class="inline-block px-4 py-2 text-white" href="{{route('properties')}}?type=0">Land</a></li>
             <li><a class="inline-block px-4 py-2 text-white" href="{{route('properties')}}?type=1">Apartment</a></li>
-            <li><a class="inline-block px-4 py-2 text-white" href="{{route('properties')}}?type=2">Villa</a></li>
+            <li><a class="inline-block px-4 py-2 text-white" href="{{route('properties')}}?type=2">{{__('Villa')}}</a></li>
             <li><a class="inline-block px-4 py-2 text-white" href="{{route('page','about-us')}}">About Us</a></li>
             <li><a class="inline-block px-4 py-2 text-white" href="{{route('page','contact-us')}}">Contact Us</a></li>
         </ul>
     </div>
 
 
-    <div class="min-w-max flex">
-        <a class="pr-4" href=""><img src="https://flagcdn.com/40x30/tr.png"></a>
-        <a href=""><img src="https://flagcdn.com/40x30/us.png"></a>
+    <div class="min-w-max mr-10 text-2xl">
+        <a class="inline-block mr-5 text-white" href="?currency=usd">$</a>
+        <a class="inline-block mr-5 text-white" href="?currency=usd">₺</a>
+
+    </div>
+
+    <div class="min-w-max text-3xl flex">
+        <a class=" mx-2" href="{{ LaravelLocalization::getLocalizedURL('tr') }}"><img
+                src="https://flagcdn.com/32x24/tr.png"></a>
+        <a href="{{ LaravelLocalization::getLocalizedURL('en-unused') }}"><img
+                src="https://flagcdn.com/32x24/us.png"></a>
+
     </div>
 </div>
