@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LocationController;
 use \App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -39,12 +40,13 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/dashboard/update-property/{id}',[DashboardController::class,'updateProperty'])->name('update-property');
     Route::post('/dashboard/delete-property/{id}', [DashboardController::class, 'deleteProperty'])->name('delete-property');
 
-//    Route::resource('dashboard-location',[])
-    Route::get('/dashboard/locations',[DashboardController::class,'locations'])->name('dashboard-locations');
-    Route::get('/dashboard/edit-location/{id}',[DashboardController::class,'editLocation'])->name('edit-location');
-    Route::get('/dashboard/add-location',[DashboardController::class,'addLocation'])->name('add-location');
-    Route::get('/dashboard/update-location/{id}',[DashboardController::class,'updateProperty'])->name('update-location');
-    Route::post('/dashboard/delete-location/{id}', [DashboardController::class, 'deleteLocation'])->name('delete-location');
+
+    Route::resource('dashboard-locations',LocationController::class);
+//    Route::get('/dashboard/locations',[DashboardController::class,'locations'])->name('dashboard-locations');
+//    Route::get('/dashboard/edit-locations/{id}',[DashboardController::class,'editLocation'])->name('edit-locations');
+//    Route::get('/dashboard/add-locations',[DashboardController::class,'addLocation'])->name('add-locations');
+//    Route::get('/dashboard/update-locations/{id}',[DashboardController::class,'updateProperty'])->name('update-locations');
+//    Route::post('/dashboard/delete-locations/{id}', [DashboardController::class, 'deleteLocation'])->name('delete-locations');
 
     Route::resource('dashboard-page',\App\Http\Controllers\Admin\PageController::class);
 
