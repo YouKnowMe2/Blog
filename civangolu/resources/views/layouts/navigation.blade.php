@@ -18,6 +18,19 @@
                     <x-nav-link :href="route('dashboard-properties')" :active="request()->routeIs('dashboard-properties')">
                         {{ __('Properties') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dashboard-locations')" :active="request()->routeIs('dashboard-locations')">
+                        {{ __('Locations') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard-page.index')" :active="request()->routeIs('dashboard-page.index')">
+                        {{ __('Pages') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard-messages')" :active="request()->routeIs('dashboard-messages')">
+                        {{ __('Messages') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

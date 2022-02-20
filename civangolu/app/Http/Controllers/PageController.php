@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function single($slug){
-        $page = Page::where('slug',$slug)->first();
-        if(!empty($page)){
-            return view('page',[
-                'page'=>$page
+
+    public function single($slug) {
+        $page = Page::where('slug', $slug)->first();
+
+        if(!empty($page)) {
+            return view('page', [
+                'page' => $page
             ]);
-        }else{
+        } else {
             return abort('404');
         }
     }
