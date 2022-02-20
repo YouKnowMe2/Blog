@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Location;
 use App\Models\Property;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -36,11 +37,12 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,FlasherInterface $flasher)
     {
         $location = new Location();
         $location->name = $request->name;
         $location->save();
+        $flasher->addSuccess('Location has been saved');
         return redirect(route('dashboard-locations.index'));
     }
     public function add(){
@@ -77,12 +79,13 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id,FlasherInterface $flasher)
     {
         $location = Location::findOrFail($id);
 
         $location->name = $request->name;
         $location->save();
+        $flasher->addSuccess('Location has been updated');
         return redirect(route('dashboard-locations.index'));
 
     }
@@ -93,14 +96,21 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,FlasherInterface $flasher)
     {
-
+        $property = Property::all();
         $location = Location::findOrFail($id);
-        if(($location->id)>10){
-            $location->delete();
+
+        foreach ($property as $property){
+            if($property->location_id === $location->id){
+                $property->delete();
+            }
         }
 
+
+            $location->delete();
+
+        $flasher->addSuccess('Location has been deleted');
         return back();
     }
 }

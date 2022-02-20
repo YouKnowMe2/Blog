@@ -42,11 +42,7 @@ Route::middleware(['auth'])->group(function (){
 
 
     Route::resource('dashboard-locations',LocationController::class);
-//    Route::get('/dashboard/locations',[DashboardController::class,'locations'])->name('dashboard-locations');
-//    Route::get('/dashboard/edit-locations/{id}',[DashboardController::class,'editLocation'])->name('edit-locations');
-//    Route::get('/dashboard/add-locations',[DashboardController::class,'addLocation'])->name('add-locations');
-//    Route::get('/dashboard/update-locations/{id}',[DashboardController::class,'updateProperty'])->name('update-locations');
-//    Route::post('/dashboard/delete-locations/{id}', [DashboardController::class, 'deleteLocation'])->name('delete-locations');
+
 
     Route::resource('dashboard-page',\App\Http\Controllers\Admin\PageController::class);
 

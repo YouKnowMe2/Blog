@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -27,7 +28,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.page.add');
     }
 
     /**
@@ -36,9 +37,18 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,FlasherInterface $flasher)
     {
-        //
+        $page = new Page();
+        $page->name = $request->name;
+        $page->slug = $request->slug;
+        $page->content = $request->content;
+        $page->save();
+        $flasher->addSuccess('The page has been saved');
+        return redirect(route('dashboard-page.index'));
+
+
+
     }
 
     /**
@@ -49,7 +59,8 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        return view('admin.page.edit',['page' => $page]);
     }
 
     /**
@@ -70,9 +81,18 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, FlasherInterface $flasher)
     {
-        //
+        $page = Page::findOrFail($id);
+        $page->name= $request->name;
+        $page->slug = $request->slug;
+        $page->content = $request->content;
+        $page->save();
+
+        $flasher->addSuccess('Page has been updated');
+        return redirect(route('dashboard-page.index'));
+
+
     }
 
     /**
@@ -81,10 +101,11 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, FlasherInterface $flasher)
     {
         $page = Page::findOrFail($id);
         $page->delete();
+        $flasher->addSuccess('Page has been deleted successfully');
         return back();
     }
 }

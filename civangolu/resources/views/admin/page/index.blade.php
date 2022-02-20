@@ -6,7 +6,7 @@
             </h2>
 
             <div class="min-w-max">
-                <a href="{{route('dashboard-page.store')}}" class="fullwidth-btn">Add New Page</a>
+                <a href="{{route('dashboard-page.create')}}" class="fullwidth-btn">Add New Page</a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                                 <td class="border px-4 py-2">{{$page->name}}</td>
 
                                 <td class="border px-4 py-2 text-center">
-                                    <a class="bg-blue-500 text-white px-4 py-2 text-xs rounded" href="{{route('dashboard-page.edit',$page->id)}}">Edit</a>
+                                    <a class="bg-blue-500 text-white px-4 py-2 text-xs rounded" href="{{route('dashboard-page.show',$page->id)}}">Edit</a>
                                     <a class="bg-blue-500 text-white px-4 py-2 text-xs rounded" href="{{route('page',$page->slug)}}">View</a>
 
                                     <form onsubmit="return confirm('Do you really want to delete the property?');" action="{{route('dashboard-page.destroy',$page->id)}}" method="post" class="inline-block"> @csrf @method('delete')

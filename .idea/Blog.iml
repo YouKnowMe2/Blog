@@ -121,6 +121,8 @@
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/mcamara/laravel-localization" />
+      <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/php-flasher/flasher-laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/civangolu/vendor/php-flasher/flasher" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
