@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
-use App\Models\Page;
-use Flasher\Prime\FlasherInterface;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class PageController extends Controller
      */
     public function index()
     {
+        $messages = Contact::all();
 
-        $pages = Page::latest()->paginate(20);
-        return view('admin.page.index',['pages' => $pages]);
+        return view('admin.messages.index',['messages'=>$messages]);
     }
 
     /**
@@ -28,7 +28,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin.page.add');
+        //
     }
 
     /**
@@ -37,18 +37,9 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, FlasherInterface $flasher)
+    public function store(Request $request)
     {
-        $page = new Page();
-        $page->name = $request->name;
-        $page->slug = $request->slug;
-        $page->content = $request->content;
-        $page->save();
-        $flasher->addSuccess('The page has been saved');
-        return redirect(route('dashboard-page.index'));
-
-
-
+        //
     }
 
     /**
@@ -59,8 +50,7 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        $page = Page::findOrFail($id);
-        return view('admin.page.edit',['page' => $page]);
+        //
     }
 
     /**
@@ -81,18 +71,9 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, FlasherInterface $flasher)
+    public function update(Request $request, $id)
     {
-        $page = Page::findOrFail($id);
-        $page->name= $request->name;
-        $page->slug = $request->slug;
-        $page->content = $request->content;
-        $page->save();
-
-        $flasher->addSuccess('Page has been updated');
-        return redirect(route('dashboard-page.index'));
-
-
+        //
     }
 
     /**
@@ -101,11 +82,8 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, FlasherInterface $flasher)
+    public function destroy($id)
     {
-        $page = Page::findOrFail($id);
-        $page->delete();
-        $flasher->addSuccess('Page has been deleted successfully');
-        return back();
+        //
     }
 }

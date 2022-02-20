@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\LocationController;
 use \App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
@@ -47,9 +48,14 @@ Route::middleware(['auth'])->group(function (){
     Route::resource('dashboard-page',\App\Http\Controllers\Admin\PageController::class);
 
 
+    Route::resource('dashboard-messages',InfoController::class);
+
+
+
+
+
     Route::get('/dashboard/users',[DashboardController::class,'users'])->name('dashboard-users');
 
-    Route::get('/dashboard/messages',[DashboardController::class,'messages'])->name('dashboard-messages');
 
 
 

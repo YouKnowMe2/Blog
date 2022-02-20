@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessContactMail;
 use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -20,10 +21,10 @@ class ContactController extends Controller
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->phone = $request->phone;
-        $contact->message = $request->message . '\n This message has been sent via ' . route('single-property', $property_id) . ' website.';
+        $contact->message = $request->message . 'This message has been sent via ' . route('single-property', $property_id) . ' website.';
         $contact->save();
 
-        Mail::send(new ContactMail($contact));
+        ProcessContactMail::dispatch($contact);
         return redirect(route('single-property',$property_id))->with('message','Your Message has been sent');
     }
 }
