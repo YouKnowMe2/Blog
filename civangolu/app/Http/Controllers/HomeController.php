@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Location;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
@@ -13,5 +14,9 @@ class HomeController extends Controller
         $locations =Location::all();
 
         return view('welcome',['latest_properties' => $latest_properties,'locations' => $locations]);
+    }
+    public function currency($code){
+        Cookie::queue('currency',$code, 3600);
+        return back();
     }
 }
