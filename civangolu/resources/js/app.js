@@ -1,6 +1,8 @@
 require('./bootstrap');
 
+import feather from 'feather-icons/dist/feather'
 import Alpine from 'alpinejs';
+feather.replace();
 
 window.Alpine = Alpine;
 

@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.container{
+    @apply mx-auto;
+    max-width: 1200px;
+}
+.single-seat:hover form {display: block}
+
+.eticket-btn{
+    @apply inline-block px-4 py-2  bg-black text-white rounded
+}
+.eticket-input{
+    @apply w-full rounded border px-4 py-2
+}
+.eticket-label{
+    @apply  text-sm mb-2 uppercase cursor-pointer
+}
